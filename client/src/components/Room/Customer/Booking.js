@@ -157,7 +157,7 @@ const Booking = () => {
               </div>
               <div className="col-md-6">
                 <b>
-                  <h1><b>Booking Details</b></h1>
+                  <h4 className='fw-bolder'>Booking Details</h4>
                   <hr />
                   <div>
                     <table class="table">
@@ -188,7 +188,7 @@ const Booking = () => {
                     </table>
                   </div><br />
                   <div>
-                    <h1><b>Payment Details</b></h1>
+                    <h4 className='fw-bolder'>Payment Details</h4>
                     <hr />
                     <table class="table">
                       <thead>
