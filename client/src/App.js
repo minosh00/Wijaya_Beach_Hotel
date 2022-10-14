@@ -105,7 +105,7 @@ function App() {
         <Route path="/updateRoomsByIDcus/:id/:fromdate/:todate" element={<Booking />} />
         <Route path="/comments-section" element={<CommentsSection />} />
         <Route path="/comments-section/create/:roomID" element={<AddComment />} />
-        <Route path="/comments-section/edit/:id" element={<EditComment />} />
+        <Route path="/comments-section/edit/:roomID/:id" element={<EditComment />} />
         <Route path="/allusers" element={<AllUsers />} />
       </Routes>
       <br></br>
