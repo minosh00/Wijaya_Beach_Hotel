@@ -53,6 +53,11 @@ const Login = () => {
       localStorage.setItem("userRole", data?.data?.userRole);
       localStorage.setItem("email", formData.email);
       localStorage.setItem("user", data?.data?.user);
+	  Swal.fire({
+        icon: "success",
+        title: "Congrats ",
+        text: "Login Successfully!",
+      });
       navigate("/dashboard");
     } else {
       Swal.fire({
