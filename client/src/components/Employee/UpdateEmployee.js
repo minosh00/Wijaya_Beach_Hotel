@@ -81,7 +81,7 @@ const UpdateEmployee = () => {
 
 
     let validate = ValidateAddNewMenu(newdata);
-    let msg = validate?.message.toString();
+    let msg = validate?.message;
     console.log(msg);
 
     if(validate.status == false)

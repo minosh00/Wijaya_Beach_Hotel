@@ -105,7 +105,7 @@ const UpdateRooms = () => {
     };
 
     let validate = Validateroom(newdata);
-    let msg = validate?.message.toString();
+    let msg = validate?.message;
     console.log(msg);
 
     if(validate.status == false)
@@ -126,7 +126,7 @@ const UpdateRooms = () => {
 
       let data = await updateRoomsByID(id, newdata);
       console.log("Update success ", data);
-      if (!data?.data?.foodName) {
+      if (!data?.data?.name) {
         {
           Swal.fire('Congrats', 'Update room  successfully ', 'success')
           navigate("/mainroom");
