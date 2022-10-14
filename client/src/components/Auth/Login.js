@@ -4,6 +4,7 @@ import { LoginCustomer } from "../../Services/AuthServices";
 import Swal from 'sweetalert2';
 import Logins from '../../images/register.png';
 import axios from "axios";
+
 const Login = () => {
   const navigate = useNavigate();
 
@@ -14,13 +15,37 @@ const Login = () => {
 
   const { email, password } = formData;
 
+
+  const vaild=()=>{
+	let  error={};
+
+	if(!email)
+	{
+		error.email="email is require";
+	}
+	if(!password){
+		error.password="password is required";
+	}
+	   return error;
+  }
+
+  const[error,setError]=useState({});
+
+
+
+
+
+
   const onChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
+
+
   };
 
   const onSubmit = async (e) => {
     e.preventDefault();
     console.log("data", formData.email);
+	//console.log("data", formData.password);
     let data = await LoginCustomer(formData);
     console.log("data", data);
     if (data?.data?.userRole) {
