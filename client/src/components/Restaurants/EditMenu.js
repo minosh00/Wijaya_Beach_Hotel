@@ -78,17 +78,17 @@ const EditMenu = () => {
             <div className="row py-3">
               <div className="col-md-6">
                 <label for="name">  Name </label>
-                <input type="text" class="form-control" value={name} onChange={handleName} placeholder="room name " />
+                <input type="text" class="form-control" value={name} onChange={handleName} placeholder="Enter Food Name" />
               </div>
               <div class="col-md-6">
                 <label for="type"> Price (LKR) </label>
-                <input class="form-control" id="type" value={price} onChange={handlePrice} placeholder="Enter Room Type" />
+                <input class="form-control" id="type" value={price} onChange={handlePrice} placeholder="Enter Price (LKR)" />
               </div>
             </div>
 
             <div class="col-md-12">
               <label for="features"> Image URL </label>
-              <textarea class="form-control" type="text" value={images} onChange={handleImages} placeholder="Enter Features" rows="3" /> <br />
+              <textarea class="form-control" type="text" value={images} onChange={handleImages} placeholder="Enter Image URL" rows="3" /> <br />
             </div>
             <div class="col-md-12">
               <label for="description"> Description   </label>
