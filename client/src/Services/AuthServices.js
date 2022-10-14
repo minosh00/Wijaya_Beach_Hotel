@@ -43,10 +43,12 @@ export async function LoginCustomer(data) {
        .catch(function (error) {
            if (error.response) {
              //console.log(error.response.data);
+  
              result = error.response;
              
            } else if (error.request) {
              //console.log(error.request);
+            
              result = error.request;
            } 
        
@@ -54,7 +56,7 @@ export async function LoginCustomer(data) {
     return result;
   }
 
-  
+
 export async function AuthCustomer(token) { 
       const config = {
         headers: {
