@@ -12,7 +12,7 @@ export const ValidateAddNewMenu=(formData) =>{
             message : null
     };
 
-    if(formData.foodName.length <= 2 )
+    if(formData.name.length <= 2 )
     {
         output.message = messages.FOOD_NAME_EMPTY;
         output.status = false;
@@ -25,7 +25,7 @@ export const ValidateAddNewMenu=(formData) =>{
         output.status = false;
         return output;
     }  
-    if(formData.Description.length <= 2)
+    if(formData.description.length <= 2)
     {
         output.message = messages.DESCRIPTION_EMPTY;
         output.status = false;
