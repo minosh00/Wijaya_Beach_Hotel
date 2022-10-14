@@ -3,6 +3,7 @@ import { useNavigate, Link } from "react-router-dom";
 import { LoginCustomer } from "../../Services/AuthServices";
 import Swal from 'sweetalert2';
 import Logins from '../../images/register.png';
+import axios from "axios";
 const Login = () => {
 
 	const navigate = useNavigate();
@@ -25,6 +26,8 @@ const Login = () => {
 		console.log("data",formData.email)
 		let data = await LoginCustomer(formData);
 		console.log("data", data.data.email);
+
+
 		if (data?.data?.userRole) {
 			localStorage.setItem("token", data?.data?.token);
 			localStorage.setItem("userRole", data?.data?.userRole);
