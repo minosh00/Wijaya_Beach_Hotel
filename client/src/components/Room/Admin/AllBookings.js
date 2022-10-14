@@ -32,7 +32,7 @@ function AllBookings() {
     return (
         <div>
             <div className="">
-                <div className="container shadow border border-5 my-5 mx-auto"> <br />
+                <div className="container shadow my-5 mx-auto"> <br />
                     <h3 className=" fw-bolder mb-4">
                         <center>All Bookings</center>
                         <hr />
@@ -40,7 +40,7 @@ function AllBookings() {
                     <table class="table" Id="FundsTrans">
                         <thead className='table-dark'>
                             <tr>
-                                <th scope='col'>#</th>
+                                <th>#</th>
                                 <th scope="col">Name</th>
                                 <th scope="col">E-mail Address</th>
                                 <th scope="col">Room Name</th>

@@ -63,7 +63,7 @@ const EditMenu = () => {
 
     if (!data?.data?.name) {
       {
-        Swal.fire('Congrats', 'Update menu Successfully ', 'success')
+        Swal.fire('Congrats', 'Update Menu Successfully', 'success')
         navigate("/AllMenus");
       }
 

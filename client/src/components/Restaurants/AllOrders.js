@@ -27,27 +27,23 @@ const AllOrders = () => {
   }, []);
 
   return (
-    <div className="container"><br /><br /><br />
-         <h3 >All Orders </h3>      
-      <div class="input-group">
-     
-      </div>
-      <br></br>
-      <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+    <div className="container shadow my-5 mx-auto"><br /><br /><br />
+      <h3 className=" fw-bolder mb-4">
+        <center>All Orders</center>
+        <hr />
+      </h3><br />
 
-      </div> <br/>
-
-      <MDBTable align='middle'>
-        <MDBTableHead>
+      <table class="table table-bordered">
+        <thead className='table-dark'>
           <tr>
-            <th scope='col'>User Name </th>
+            <th scope='col'>Customer Name </th>
             <th scope='col'>Street</th>
             <th scope='col'>City</th>
-            <th scope='col'> All  Orders</th>
-    
+            <th scope='col'>Order Details</th>
+
           </tr>
-        </MDBTableHead>
-        <MDBTableBody >
+        </thead>
+        <tbody className="table-group-divider">
           {users &&
             users.filter((users) => {
               if (serachItem == "") {
@@ -61,8 +57,7 @@ const AllOrders = () => {
                 return (
                   <tr>
                     <td>
-                      <div className='d-flex align-items-center'>   
-                              
+                      <div className='d-flex align-items-center'>
                         <div className='ms-3'>
                           <p className='fw-bold mb-1'>{item?.user?.name}</p>
                         </div>
@@ -70,30 +65,35 @@ const AllOrders = () => {
                     </td>
                     <td>
                       <p className='fw-normal mb-1'>{item?.user?.street}</p>
-                    </td>           
+                    </td>
                     <td>
                       <p className='fw-normal mb-1'>{item?.user?.city}</p>
                     </td>
                     <td>
-                        <tr>
-                          <th scope='col'>Name </th> &nbsp;&nbsp;&nbsp;&nbsp;
-                          <th scope='col'>Amount</th> &nbsp;&nbsp;&nbsp;&nbsp;
-                          <th scope='col'>Price</th> &nbsp;&nbsp;&nbsp;&nbsp;
-                        </tr>
-                      {item?.orderedItems.map((order)=>(
-                        <tr>
-                          <td>{order?.name}</td>&nbsp;&nbsp;&nbsp;&nbsp;
-                          <td>{order?.amount}</td>&nbsp;&nbsp;&nbsp;&nbsp;
-                          <td>{order?.price}</td>&nbsp;&nbsp;&nbsp;&nbsp;
-                        </tr>
-                      ))}
+                      <table class="table">
+                        <thead className='table-primary'>
+                          <tr>
+                            <th scope='col'>Name </th>
+                            <th scope='col'>Amount</th>
+                            <th scope='col'>Price</th>
+                          </tr>
+                        </thead>
+                        <tbody className="table-group-divider">
+                          {item?.orderedItems.map((order) => (
+                            <tr>
+                              <td>{order?.name}</td>
+                              <td>{order?.amount}</td>
+                              <td>LKR: {order?.price} /=</td>
+                            </tr>
+                          ))}
+                        </tbody>
+                      </table>
                     </td>
                   </tr>
                 );
               })}
-        </MDBTableBody>
-      </MDBTable>
-
+        </tbody>
+      </table>
     </div>
 
   );
