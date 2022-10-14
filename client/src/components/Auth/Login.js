@@ -5,44 +5,38 @@ import Swal from 'sweetalert2';
 import Logins from '../../images/register.png';
 import axios from "axios";
 const Login = () => {
+  const navigate = useNavigate();
 
-	const navigate = useNavigate();
+  const [formData, setFormData] = useState({
+    email: "",
+    password: "",
+  });
 
-	const [formData, setFormData] = useState({
-		email: "",
-		password: "",
-	});
+  const { email, password } = formData;
 
-	const { email, password } = formData;
+  const onChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
 
-	const onChange = (e) => {
-		setFormData({ ...formData, [e.target.name]: e.target.value });
-	}
-
-
-	const onSubmit = async (e) => {
-
-		e.preventDefault();
-		console.log("data",formData.email)
-		let data = await LoginCustomer(formData);
-		console.log("data", data.data.email);
-
-
-		if (data?.data?.userRole) {
-			localStorage.setItem("token", data?.data?.token);
-			localStorage.setItem("userRole", data?.data?.userRole);
-			localStorage.setItem("email", formData.email);
-			localStorage.setItem("user", data?.data?.user);
-			navigate("/dashboard");
-		}
-		else {
-			Swal.fire({
-				icon: 'error',
-				title: 'Oops...',
-				text: 'Login Failed!',
-			})
-		}
-	};
+  const onSubmit = async (e) => {
+    e.preventDefault();
+    console.log("data", formData.email);
+    let data = await LoginCustomer(formData);
+    console.log("data", data);
+    if (data?.data?.userRole) {
+      localStorage.setItem("token", data?.data?.token);
+      localStorage.setItem("userRole", data?.data?.userRole);
+      localStorage.setItem("email", formData.email);
+      localStorage.setItem("user", data?.data?.user);
+      navigate("/dashboard");
+    } else {
+      Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: "Login Failed!",
+      });
+    }
+  };
 
 
 	return (
