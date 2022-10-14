@@ -99,6 +99,11 @@ const Booking = () => {
 
     try {
       const result = await axios.post('http://localhost:5000/book/bookroom', bookingDetails)
+      Swal.fire({
+        icon: "success",
+        title: "Congrats...",
+        text: " Booking Success ",
+      });
     } catch (error) {
 
     }
@@ -106,7 +111,26 @@ const Booking = () => {
 
   async function handleToken(token) {
     console.log(token);
+
+    let result;
+    
+    if (result === 200) {
+      Swal.fire({
+        icon: "success",
+        title: "Congrats...",
+        text: " Booking Success ",
+      });
+
+    } else {
+      Swal.fire({
+        icon: "success",
+        title: "Congrats...",
+        text: " Booking Success ",
+      });
+
+    }
   }
+
 
   function onToken(token) {
     console.log(token);
