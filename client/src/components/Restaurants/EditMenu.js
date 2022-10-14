@@ -4,6 +4,8 @@ import { useState, useEffect } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { getMenuById, updateMenuByID } from "./services/MenuServices";
 import { MDBBtn } from 'mdb-react-ui-kit'
+import { ValidateAddNewMenu } from "./Validation";
+
 
 const EditMenu = () => {
 
@@ -45,6 +47,7 @@ const EditMenu = () => {
   }, []);
 
   const UpdateData = async (e) => {
+
     e.preventDefault();
     let newdata = {
       name: name,
@@ -53,8 +56,11 @@ const EditMenu = () => {
       description: description
     };
 
+  
     let data = await updateMenuByID(id, newdata);
     console.log("Update Success ", data);
+      
+
     if (!data?.data?.name) {
       {
         Swal.fire('Congrats', 'Update menu Successfully ', 'success')
@@ -78,21 +84,21 @@ const EditMenu = () => {
             <div className="row py-3">
               <div className="col-md-6">
                 <label for="name">  Name </label>
-                <input type="text" class="form-control" value={name} onChange={handleName} placeholder="Enter Food Name" />
+                <input type="text" class="form-control" value={name} onChange={handleName} placeholder="Enter Food Name"  required />
               </div>
               <div class="col-md-6">
                 <label for="type"> Price (LKR) </label>
-                <input class="form-control" id="type" value={price} onChange={handlePrice} placeholder="Enter Price (LKR)" />
+                <input class="form-control" id="type" value={price} onChange={handlePrice} placeholder="Enter Price (LKR)"  required />
               </div>
             </div>
 
             <div class="col-md-12">
               <label for="features"> Image URL </label>
-              <textarea class="form-control" type="text" value={images} onChange={handleImages} placeholder="Enter Image URL" rows="3" /> <br />
+              <textarea class="form-control" type="text" value={images} onChange={handleImages} placeholder="Enter Image URL" rows="3"  required  /> <br />
             </div>
             <div class="col-md-12">
               <label for="description"> Description   </label>
-              <textarea class="form-control" type="text" value={description} onChange={handleDescription} placeholder="Enter Description" rows="6" />
+              <textarea class="form-control" type="text" value={description} onChange={handleDescription} placeholder="Enter Description" rows="6"  required  />
             </div> <br />
             <div className="d-grid gap-2 d-md-flex justify-content-md-end">
               <MDBBtn rounded color="danger" type="submit" onClick={(e) => UpdateData(e)} className="btn btn-warning"> Update Menu </MDBBtn>
