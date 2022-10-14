@@ -55,7 +55,7 @@ const AddMenu = () => {
                             </div>
                             <div class="col-md-6">
                                 <label for="type"> Price (LKR) </label>
-                                <input class="form-control" id="type" onChange={(f) => setprice(f.target.value)} placeholder="Enter Price (LKR)" required />
+                                <input  type="number"class="form-control" id="type" onChange={(f) => setprice(f.target.value)} placeholder="Enter Price (LKR)" required />
                             </div>
                         </div>
                         <div class="col-md-12">

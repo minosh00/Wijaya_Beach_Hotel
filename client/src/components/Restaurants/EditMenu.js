@@ -56,29 +56,43 @@ const EditMenu = () => {
       images: images,
       description: description
     };
-
-  
-   
-  
-        let data = await updateMenuByID(id, newdata);
-        console.log("Update Success ", data);
-      
- 
-  
-
-    if (!data?.data?.name) {
-      {
-        Swal.fire('Congrats', 'Update Menu Successfully', 'success')
-        navigate("/AllMenus");
-      }
-
-    } else {
-      {
-        Swal.fire('Congrats', 'Update Menu Successfully ', 'success')
-        navigate("/AllMenus");
-      }
+    let validate = ValidateAddNewMenu(newdata);
+    let msg = validate?.message.toString();
+    console.log(msg);
+    if(validate.status == false)
+    {
+      Swal.fire({
+        toast: true,
+        icon: 'warning',
+        html: `<span>${msg}</span>`,
+        animation: true,
+        position: 'top-right',
+        showConfirmButton: false,
+        timer: 2000,
+        timerProgressBar: false,
+    });
     }
-  };
+
+    else{
+
+      let data = await updateMenuByID(id, newdata);
+      console.log("Update Success ", data);
+      if (!data?.data?.name) {
+        {
+          Swal.fire('Congrats', 'Update Menu Successfully', 'success')
+          navigate("/AllMenus");
+        }
+  
+      } else {
+        {
+          Swal.fire('Congrats', 'Update Menu Successfully ', 'success')
+          navigate("/AllMenus");
+        }
+      }
+}
+    }
+
+  
 
   return (
     <div>
@@ -89,7 +103,7 @@ const EditMenu = () => {
             <div className="row py-3">
               <div className="col-md-6">
                 <label for="name">  Name </label>
-                <input type="text" class="form-control" value={name} onChange={handleName} placeholder="Enter Food Name"  required="true" />
+                <input type="text" class="form-control" value={name} onChange={handleName} placeholder="Enter Food Name"  required="" />
               </div>
               <div class="col-md-6">
                 <label for="type"> Price (LKR) </label>
