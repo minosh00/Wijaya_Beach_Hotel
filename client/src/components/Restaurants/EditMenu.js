@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { getMenuById, updateMenuByID } from "./services/MenuServices";
 import { MDBBtn } from 'mdb-react-ui-kit'
+import { ValidateAddNewMenu } from "./Validation";
 
 
 
@@ -57,9 +58,13 @@ const EditMenu = () => {
     };
 
   
-    let data = await updateMenuByID(id, newdata);
-    console.log("Update Success ", data);
+   
+  
+        let data = await updateMenuByID(id, newdata);
+        console.log("Update Success ", data);
       
+ 
+  
 
     if (!data?.data?.name) {
       {
@@ -84,7 +89,7 @@ const EditMenu = () => {
             <div className="row py-3">
               <div className="col-md-6">
                 <label for="name">  Name </label>
-                <input type="text" class="form-control" value={name} onChange={handleName} placeholder="Enter Food Name"  required />
+                <input type="text" class="form-control" value={name} onChange={handleName} placeholder="Enter Food Name"  required="true" />
               </div>
               <div class="col-md-6">
                 <label for="type"> Price (LKR) </label>
