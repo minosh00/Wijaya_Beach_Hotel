@@ -45,6 +45,7 @@ const AllMenus = () => {
       <br></br>
       <div class="d-grid gap-2 d-md-flex justify-content-md-end">
         <Link to="/addMenu"><MDBBtn color="primary" type="submit">Add New Menu</MDBBtn></Link>
+        <Link to="/AllOrders"><MDBBtn color="primary" type="submit">  All Orders</MDBBtn></Link>
         <Button className='btn btn-danger search-btn' onClick={() => MenuReport(users)}>Generate Pdf</Button> &nbsp; <br />
       </div> <br/>
 

@@ -20,7 +20,7 @@ import Home from "./components/Layouts/Main";
 import EditMenu from "./components/Restaurants/EditMenu";
 import AddMenu from "./components/Restaurants/AddMenu"
 import Test from "./components/Test"
-
+import AllOrders from "./components/Restaurants/AllOrders"
 
 //sadumini
 import AllEmployee from "./components/Employee/AllEmployee";
@@ -89,7 +89,9 @@ function App() {
         <Route path="/AllMenus" element={<AllMenus />} />
         <Route path="/updateMenuByID/:id" element={<EditMenu />} />
         <Route path="/addMenu" element={<AddMenu />} />
-
+        
+        
+        <Route path="/AllOrders" element={<AllOrders />} />
         <Route path="/Displaymenus" element={<Test />} />
 
 
